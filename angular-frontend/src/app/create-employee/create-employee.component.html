@@ -1,0 +1,77 @@
+<div class="col-md-6 offset-md-3">
+    <br>
+    <div><h1 class="text-center font-weight-bold">Add New Employee</h1></div>
+    <form (ngSubmit) = "onSubmit()" #loginform="ngForm">
+        
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                    <label> First Name</label>
+                    <input type="text" class ="form-control" id = "firstName"
+                        [(ngModel)] = "employee.fname" name = "firstName" required #fname="ngModel" [class.is-invalid]="fname.invalid && fname.touched">
+                        <small class="text-danger" [class.d-none]="fname.valid || fname.untouched" >FirstName is Required</small>
+                </div>
+              </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label> Last Name</label>
+                        <input type="text" class ="form-control" id = "lastName" 
+                            [(ngModel)] = "employee.lname" name = "lastName" required #lname="ngModel" [class.is-invalid]="lname.invalid && lname.touched">
+                            <small class="text-danger" [class.d-none]="lname.valid || lname.untouched" >LastName is Required</small>
+                    </div>
+                </div>
+            </div>
+        
+        <div class="form-group">
+            <label> Email Id</label>
+            <input type="email" class ="form-control" id = "emailId" 
+                [(ngModel)] = "employee.mail" name = "emailId" required #mail="ngModel" [class.is-invalid]="mail.invalid && mail.touched" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <small class="text-danger" [class.d-none]="mail.valid || mail.untouched" >Enter Valid Mail ID</small>
+            </div>
+
+        <div class="form-group">
+            <label> Mobile</label>
+            <input type="number" class ="form-control" id = "mobile"
+            [(ngModel)] = "employee.mobile" name = "mobile"  required #mobile="ngModel" [class.is-invalid]="mobile.invalid && mobile.touched">
+            <small class="text-danger" [class.d-none]="mobile.valid || mobile.untouched" >Mobile Number is Required</small>
+                
+        </div>
+
+        <div class="form-group">
+            <label> Address</label>
+            <input type="text" class ="form-control" id = "address"
+                [(ngModel)] = "employee.address" name = "address"  required #address="ngModel" [class.is-invalid]="address.invalid && address.touched">
+            <small class="text-danger" [class.d-none]="address.valid || address.untouched" >Address is Required</small>
+
+        </div>
+
+        <div class="form-group" >
+            <label> Role</label><br>
+
+            <input type="radio"  id="role" name="role"  value="Java"   [(ngModel)] = "employee.role" name = "role" required #role="ngModel" [class.is-invalid]="role.invalid && role.touched">
+            <label for="role">&nbsp;Java</label><br>
+            <input type="radio" id="role" name="role" value="Devops"   [(ngModel)] = "employee.role" name = "role" required #role="ngModel" [class.is-invalid]="role.invalid && role.touched">
+            <label for="role">&nbsp;Devops | Cyber</label><br>
+            <input type="radio" id="role" name="role" value="Dot Net"   [(ngModel)] = "employee.role" name = "role" required #role="ngModel" [class.is-invalid]="role.invalid && role.touched">
+            <label for="role">&nbsp;Dot Net</label><br>
+            <input type="radio" id="role" name="role" value="Data"   [(ngModel)] = "employee.role" name = "role" required #role="ngModel" [class.is-invalid]="role.invalid && role.touched">
+            <label for="role">&nbsp;Data</label>
+            
+            <small class="text-danger" [class.d-none]="role.valid || role.untouched" >Role is Required</small>
+
+        </div>
+        <div class="form-group">
+            <label> DOB</label>
+            <input type="date" class ="form-control" id = "dob"
+                [(ngModel)] = "employee.dob" name = "dob" required #dob="ngModel" [class.is-invalid]="dob.invalid && dob.touched">
+            <small class="text-danger" [class.d-none]="dob.valid || dob.untouched" >Fill the Date of Birth</small>
+
+        </div>
+    
+        <button class = "btn btn-success" type ="submit" [disabled]="loginform.form.invalid">Submit</button>
+        <br>
+        <br>
+        <br>
+    
+    </form>
+    </div> 

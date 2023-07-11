@@ -1,0 +1,47 @@
+<br><h1 class="text-center font-weight-bold">Admin's List</h1>
+<!-- <div class="search-hero topnav float-right">
+    <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search">
+    </div> -->
+  
+  <br>
+  <br>
+
+  <div class="table-responsive">
+    <table class ="table table-bordered table-hover" id="excel" #table>
+        <thead class="thead-dark">
+        <tr>
+            <!-- <th>--</th> -->
+            <!-- <th>Emp.ID</th> -->
+            <th>User Name</th>
+            <!-- <th>Last Name</th> -->
+            <th>Email Id</th>
+            <!-- <th>Mobile</th> -->
+            <th>Mobile</th>
+            <!-- <th>DOB</th>-->
+            <th>Action</th> 
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let admin of admins  | filter:searchText">
+            <!-- <td><div class="form-check">
+                <input class="form-check-input" type="checkbox" value="select" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault" [ngModel]="employee.id" (change)="this.getCountEmployees();">
+                </label>
+              </div></td> -->
+            <td>{{admin.username}}</td>
+            <td><p><a href="mailto:{{admin.mail}}">{{admin.mail}}</a></p></td>
+            <!-- <td>{{employee.lname}}</td> -->
+            <td>{{admin.mobile}}</td>
+            <!-- <td>{{employee.mobile}}</td> -->
+            
+            <!-- <td>{{employee.dob}}</td>
+            <td>{{employee.address}}</td> -->
+            
+            <td>
+                <button (click)="deleteAdmin(admin.id)" class = "btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
